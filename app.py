@@ -1,8 +1,14 @@
 import pickle
 import streamlit as st
 import requests
+from dotenv import load_dotenv
+import os
 
-api_key = "Your_API_KEY"   # you can get it from this website https://developer.themoviedb.org/docs/getting-started
+# Load environment variables from the .env file
+load_dotenv()
+
+# Access the API key
+api_key = os.getenv("API_KEY")
 
 def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=en-US"
